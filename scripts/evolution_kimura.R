@@ -3,12 +3,13 @@ randDNA = function(n){
   paste(sample(c("A","T","C","G"), n, replace=TRUE), collapse="")
 }
 
-#evolution of a DNA sequence according to kimura model
+# Evolution of a DNA sequence according to kimura model
 # Transition rate
 Alpha=(1/2)*10^-6
 # Transversion rate
 Beta=(1/4)*10^-6
-# Alpha + 2*Beta = total mutation rate
+# Alpha + 2*Beta = total mutation rate per generation
+# Inputs: sequence, t (number of generations)
 evolution_kimura<-function(sequence, t){
   # random probabilities of having mutations drawn form a uniform distribution
   random_mut <- runif(n = nchar(sequence), 0, 1)
