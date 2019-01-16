@@ -8,7 +8,9 @@ randDNA = function(n){
 Alpha=(1/2)*10^-6
 # Transversion rate
 Beta=(1/4)*10^-6
+# Alpha + 2*Beta = total mutation rate
 evolution_kimura<-function(sequence, t){
+  # random probabilities of having mutations drawn form a uniform distribution
   random_mut <- runif(n = nchar(sequence), 0, 1)
   sequence_new <- sequence
   p0 = 0.25*(1+exp(-4*Beta*t)+2*exp(-2*(Alpha+Beta)*t))
@@ -17,6 +19,7 @@ evolution_kimura<-function(sequence, t){
   substitution_mat <- matrix(c(p0, p1, p1, p2, p1, p0, p2, p1, p1, p2, p0, p1, p2, p1, p1, p0), 
                              ncol=4, nrow=4, byrow = T)
   letters_dna <- c("A","T","C","G")
+  # find mutation sites
   mutation_sites <- which(random_mut<1-p0)
   for (u in mutation_sites){
     vector <- match(letters_dna, substr(sequence, u,u), nomatch = 0)
@@ -29,5 +32,6 @@ evolution_kimura<-function(sequence, t){
     }
     substr(sequence_new, u,u) <- letters_dna[new_letter]
   }
+  # return new sequence and number of mutations
   return(c(sequence_new, length(mutation_sites)))
 }
