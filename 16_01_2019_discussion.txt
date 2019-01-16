@@ -1,0 +1,21 @@
+Ideas from discussion of 16_01_2019
+
+Hellweger et al., Science 2014 (Biogeographic patterns in ocean microbes emerge in a neutral agent-based model, doi:10.1126/science.1254421)
+showed the impact of neutral evolution in the emergence of global biogeographical patterns
+Questions: What is the impact of topdown (grazing), bottomup (nutrient availability) and selection on these patterns
+Create a null model of phytoplankton
+- Vary the death rate of phytoplankton cells (proxy of top down control (grazing) or bottom up (nutrient))
+
+Create a model of prey-predator (topdown control)
+- Grazing depending on a genetic model:
+  - DNA genome sequence divided in 3 parts:
+      - neutral part (non coding sequence) (1)
+      - dependency of reproduction on temperature (eg normal distribution fitness function with different optimums (means)) (2)
+      - size preference of prey (fitness function) (3)
+      - (2) and (3) are submitted to selection
+- Genetic model for phytoplankton?
+
+
+Other features proposed:
+- lag before grazing capacity of predators (eg 2 weeks ~ copepods)
+- superindividuals for phytoplankton?
